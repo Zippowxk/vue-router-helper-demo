@@ -1,18 +1,14 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h4>please install the dev-tool for your browser and debug the keep-alive stack in the Vue panel</h4>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
@@ -24,5 +20,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.button {
+  height: 1rem;
+  widows: 4rem;
 }
 </style>
