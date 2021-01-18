@@ -4,9 +4,8 @@
 
 运行后查看```vue dev-tool```中即可观察到缓存中的Vue实例，安装[dev-tool](https://github.com/vuejs/vue-devtools#vue-devtools)。
 
-效果如图：
 
-![img](https://imgchr.com/i/s0UWa8)
+演示视频地址 [Bilibili](https://www.bilibili.com/video/BV1Uv411W76T)
 
 ## Project setup
 ```
