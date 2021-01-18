@@ -3,9 +3,9 @@
     <van-nav-bar title="Product View" left-arrow @click-left="onClickLeft"/>
     <div class="container" :style="{'background-color':$route.query.color}">
       <h1 style='color:white'>{{$route.query.color}}</h1>
-      <button  @click="click">
-        Push to product "{{this.nextColor}}"
-      </button>
+      <router-link  :to='`/product?color=${nextColor}`'>
+         Push to product "{{nextColor}}"
+      </router-link>
     </div>
   </div>
 </template>
@@ -25,12 +25,9 @@ export default {
     this.nextColor = root[(Math.floor(Math.random()*3))];
   },
   methods:{
-    click(){
-      this.$router.push(`/product?color=${this.nextColor}`);
-    },
     onClickLeft() {
       this.$router.back();
-    },
+    }
   }
 }
 </script>

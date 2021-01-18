@@ -4,17 +4,17 @@
       title="Home View"
     />
     <div class="container">
-      <h1>Home View</h1>
+      <div>This is a sample code of the js library named <strong>Vue router keep alive helper</strong></div>
       <router-link  to='/product?color=Teal'>
         Push to product "Teal"
       </router-link>
-      <button @click="click">
-        replace
-      </button>
+      <router-link  to='/mine' replace>
+        Replace to Mine View
+      </router-link>
       <van-tabbar route>
-        <van-tabbar-item  replace to="/" icon="home-o">首页</van-tabbar-item>
-        <van-tabbar-item replace to="/cart" icon="search">购物车</van-tabbar-item>
-        <van-tabbar-item replace to="/mine" icon="friends-o">我的</van-tabbar-item>
+        <van-tabbar-item  replace to="/" icon="home-o">Home</van-tabbar-item>
+        <van-tabbar-item replace to="/cart" icon="search">Cart</van-tabbar-item>
+        <van-tabbar-item replace to="/mine" icon="friends-o">Mine</van-tabbar-item>
       </van-tabbar>
     </div>
   </div>
@@ -22,11 +22,6 @@
 
 <script>
 export default {
-  name: 'Home',
-  methods:{
-    click(){
-      this.$router.replace('/cart',()=>{ console.log('success')},(e)=>{ console.log("eee")})
-    }
-  }
+  name: 'Home'
 }
 </script>
