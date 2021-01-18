@@ -1,58 +1,43 @@
 import Vue from 'vue/dist/vue.esm.js';
 import App from './App.vue'
-import H from './components/HelloWorld'
 import VueRouter from 'vue-router'
-import createHelper from 'vue-router-keep-alive-helper'
+import Vant from 'vant';
+import 'vant/lib/index.css';
+import Home from './pages/Home.vue'
+import Cart from './pages/Cart.vue'
+import Mine from './pages/Mine.vue'
+import Funny from './pages/Funny.vue'
+
 Vue.use(VueRouter)
-const Foo = { 
-  name: 'foo',
-  template: '<div><p>this is foo page</p><button @click="goto">Go to bar</button></div>',
-  methods:{
-    goto(){
-      this.$router.push("/bar")
-    }
-  },
-  destroyed() {
-      console.log("foo destroyed")
-  },
-}
-const Bar = { 
-  name: 'bar',
-  template: '<div><p>this is bar page</p><button @click="goto">Go to baz</button></div>' ,
-  methods:{
-    goto(){
-      this.$router.push("/baz")
-    }
-  },
-  destroyed() {
-      console.log("bar destroyed")
-  },
-}
-const Baz = { 
-  name: 'baz',
-  template: '<div><p>this is baz page</p><button @click="goto">Go to Foo</button></div>',
-  methods:{
-    goto(){
-      this.$router.push("/foo")
-    }  
-  },
-  destroyed() {
-    console.log("baz destroyed")
-  },
-}
+Vue.use(Vant);
 
 const routes = [
-  { path: '/', component: H },
-  { path: '/foo', component: Foo},
-  { path: '/bar', component: Bar },
-  { path: '/baz', component: Baz }
+  { path: '/', component: Home },
+  { path: '/cart', component: Cart },
+  { path: '/mine', component: Mine },
+  { 
+    path: '/product', 
+    //async components supported
+    component: ()=>import(/* webpackChunkName: "product" */"./pages/Product.vue")   
+  },
+  {
+    path: '/funny', 
+    component:Funny
+  }
 ]
 
 const router = new VueRouter({
   routes,
   mode:'history',
 })
-createHelper({Vue,router})
+// uncomment this line to auto manage your keep-alive pages
+// auto create new page when you pushing,
+// destroy useless page when you going back
+import createHelper from 'vue-router-keep-alive-helper'
+// createHelper({Vue,router})
+
+// set replaceStay option to keep page alive when replacing
+createHelper({Vue,router,replaceStay:['/','/mine']})
 
 window.app = new Vue({
   render: h => h(App),
