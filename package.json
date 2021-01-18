@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "vant": "^2.12.4",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
-    "vue-router-keep-alive-helper": "0.0.9",
+    "vue-router-keep-alive-helper": "0.0.12",
     "vue-stack-router": "0.6.3"
   },
   "devDependencies": {

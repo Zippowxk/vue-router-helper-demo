@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h4>please install the dev-tool for your browser and debug the keep-alive stack in the Vue panel</h4>
+    <div style='background-color:orange;color:white'>
+      <small>Please install the <a href='https://github.com/vuejs/vue-devtools#vue-devtools'>Vue devtools </a>for your browser and debug the keep-alive stack in the Vue panel</small>
+    </div>
     <keep-alive>
       <router-view/>
     </keep-alive>
@@ -24,5 +26,10 @@ export default {
 .button {
   height: 1rem;
   widows: 4rem;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
